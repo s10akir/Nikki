@@ -1,6 +1,6 @@
 <template>
     <div class="viewer">
-        <div v-for="diary in diarys" :key="diary.title">
+        <div v-for="diary in diarys" :key="diary.title" class="oneDiary">
             <OneDiary v-bind:row="diary"></OneDiary>
         </div>
     </div>
@@ -9,6 +9,7 @@
 <script>
 const axios = require('axios');
 import OneDiary from './OneDiary.vue';
+const domain = "http://localhost:3000"
 
 export default {
 
@@ -20,7 +21,6 @@ export default {
             {title : "タイトル２", content: "コンテンツ"},
             {title : "タイトル8", content: "コンテンツ"},
             {title : "タイトル４", content: "コンテンツ"},
-
         ]
         }
     },
@@ -32,13 +32,13 @@ export default {
     },
     methods: {
     send() {
-      axios.post('http://localhost:3000/post',{title: this.sendDiary.title, content: this.sendDiary.content})
+      axios.post(domain + '/post',{title: this.sendDiary.title, content: this.sendDiary.content})
       .then(function(response) {
         console.log(response.data.diarys);
       })
     },
     get() {
-      axios.get('http://tatikaze.com/diarys')
+      axios.get(domain + '/diarys')
     .then(response => (this.diarys = response.data.diarys));
     }
   },
@@ -52,4 +52,9 @@ export default {
 </script>
 
 <style>
+  .oneDiary{
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+  }
 </style>

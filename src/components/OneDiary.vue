@@ -16,6 +16,8 @@ export default {
 <style>
 .one-diary {
     margin: 5px;
-    background-color: aqua;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: aqua;
 }
 </style>

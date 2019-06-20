@@ -1,7 +1,7 @@
 <template>
     <div>
-    <input type='text' v-model="sendDiary.title" placeholder="title">
-    <input type='text' v-model="sendDiary.content" placeholder="content">
+    <input type='text' v-model="sendDiary.title" placeholder="タイトル">
+    <input type='text' v-model="sendDiary.content" placeholder="コンテンツ">
     <button v-on:click="send">send</button>        
     </div>
 </template>

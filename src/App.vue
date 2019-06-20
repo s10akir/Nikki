@@ -2,6 +2,7 @@
   <div id="app">
     <DiaryViewer />
     <DiaryPost />
+    <p>chinko</p>
   </div>
 </template>
 

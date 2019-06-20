@@ -9,7 +9,7 @@
 <script>
 const axios = require('axios');
 import OneDiary from './OneDiary.vue';
-const domain = "http://localhost:3000"
+const domain = "http://tatikaze.com"
 
 export default {
 

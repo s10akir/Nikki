@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <DiaryViewer />
+    <DiaryPost />
   </div>
 </template>
 
 <script>
 import DiaryViewer from './components/DiaryViewer.vue'
+import DiaryPost from './components/Dairypost.vue'
 
 export default {
   name: 'app',
   components: {
     DiaryViewer,
+    DiaryPost,
   }
 }
 </script>

@@ -13,7 +13,6 @@ const axios = require('axios');
 export default {
   name: 'Dairypost',
 data() {
-
     return {
       //dataに直にkeyvalueをつくっておくれるか試してみる
       //sendDiary: this.sendDiary的なことをaxiosで書く
@@ -25,35 +24,18 @@ data() {
       }
     };
   },
-  methods: {
+methods: {
   send() {
-    if(checkForm()){
+    if(this.sendDiary.title||this.sendDiary.content){
       axios.post('http://tatikaze.com/post',{title: this.sendDiary.title, content: this.sendDiary.content})
         .then(function(response) {
         console.log(response.data.diarys);
-      })
-    }
-    else{
-
-    }
-  },
-
-  checkForm(){
-    if (this.sendDiary.title && this.sendDiary.content) {
-      return true;
+        })
       }
-
-      this.errors = [];
-
-      if (!this.sendDiary.title) {
-        this.errors.push('Title required.');
+      else{
+        log.d("a","bug")
       }
-      if (!this.age.content) {
-        this.errors.push('Content required.');
-      }
-      e.preventDefault();
     }
-
   }
 }
 </script>

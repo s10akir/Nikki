@@ -1,8 +1,8 @@
 <template>
-    <div>
-    <input type='text' v-model="sendDiary.title" placeholder="タイトル">
-    <input type='text' v-model="sendDiary.content" placeholder="コンテンツ">
-    <button v-on:click="send">send</button>        
+    <div class="send_form">
+      <input type='text' v-model="sendDiary.title" placeholder="タイトル"></br>
+      <input type='text' v-model="sendDiary.content" placeholder="コンテンツ"></br>
+      <button v-on:click="send">send</button>        
     </div>
 </template>
 
@@ -35,3 +35,11 @@ data() {
   }
 }
 </script>
+<style>
+.send_form{
+  position: fixed;
+  bottom: 10px; 
+  right: 30px;
+  padding: 6px 10px;
+}
+</style>

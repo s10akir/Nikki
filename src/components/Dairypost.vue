@@ -1,8 +1,8 @@
 <template>
     <div class="send_form">
-      <input type='text' v-model="sendDiary.title" placeholder="タイトル"></br>
-      <input type='text' v-model="sendDiary.content" placeholder="コンテンツ"></br>
-      <button v-on:click="send">send</button>        
+      <input type='text' v-model="sendDiary.title" placeholder="タイトル"><br>
+      <input type='text' v-model="sendDiary.content" placeholder="コンテンツ"><br>
+      <button v-on:click="send">send</button>
     </div>
 </template>
 
@@ -27,11 +27,33 @@ data() {
   },
   methods: {
   send() {
+    if(checkForm()){
       axios.post('http://tatikaze.com/post',{title: this.sendDiary.title, content: this.sendDiary.content})
         .then(function(response) {
         console.log(response.data.diarys);
       })
     }
+    else{
+
+    }
+  },
+
+  checkForm(){
+    if (this.sendDiary.title && this.sendDiary.content) {
+      return true;
+      }
+
+      this.errors = [];
+
+      if (!this.sendDiary.title) {
+        this.errors.push('Title required.');
+      }
+      if (!this.age.content) {
+        this.errors.push('Content required.');
+      }
+      e.preventDefault();
+    }
+
   }
 }
 </script>

@@ -17,10 +17,6 @@ export default {
     data() {
         return {
         diarys: [
-            {title : "タイトル１", content: "コンテンツ"},
-            {title : "タイトル２", content: "コンテンツ"},
-            {title : "タイトル8", content: "コンテンツ"},
-            {title : "タイトル４", content: "コンテンツ"},
         ]
         }
     },
@@ -31,23 +27,16 @@ export default {
         'OneDiary': OneDiary,
     },
     methods: {
-    send() {
-      axios.post(domain + '/post',{title: this.sendDiary.title, content: this.sendDiary.content})
-      .then(function(response) {
-        console.log(response.data.diarys);
-      })
-    },
-    get() {
-      axios.get(domain + '/diarys')
-    .then(response => (this.diarys = response.data.diarys));
-    }
+      get() {
+        axios.get(domain + '/diarys')
+        .then(response => (this.diarys = response.data.diarys));
+      },
   },
-  mounted () {
-    this.get();
+  created () {
+    setInterval(() =>
+      {this.get()},
+      1000)
   },
-  beforeUpdate () {
-    this.get();
-  }
 }
 </script>
 

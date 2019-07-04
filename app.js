@@ -1,21 +1,13 @@
-
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+let express = require('express');
+let app = express();
+let bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var test = require('./');
-var http = require('http');
-var mongoose = require('mongoose');
-//DB系
-app.use('/test',test);
-
-var port = process.env.PORT || 3000;
-var router = require('./api/');
-app.use('/', router);
+let port = process.env.PORT || 3000;
+let router = require('./routes/api/v1/');
+app.use('/api/v1/', router);
 
 app.listen(port);
 console.log('listen on port' + port);
-
